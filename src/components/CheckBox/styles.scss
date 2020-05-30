@@ -1,0 +1,26 @@
+.checkBox {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  border-radius: 8px;
+  padding: 0;
+  cursor: pointer;
+
+  & .checkBoxInput {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  & .checkBoxImg {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+}
+
+
