@@ -180,7 +180,6 @@ class MainContainer extends Component {
 									)
 								})
 							}
-							<div style={{minHeight:"500px"}}>sad</div>
 						</div>
 					</div>
 				</DropDown>

@@ -1,13 +1,27 @@
 .dropdownContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   height: 48px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   & .dropdownLabel {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     height: 16px;
     font-size: 14px;
@@ -21,9 +35,16 @@
   }
 
   & .dropdownMainContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
     border: solid 1px #e5e5e5;
     background-color: #ffffff;
