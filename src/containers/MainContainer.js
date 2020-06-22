@@ -7,8 +7,7 @@ import dropdownStar from "./svg/dropdownstar.svg";
 import styles from "./styles.scss";
 import CheckBox from "../components/CheckBox";
 import Search from "../components/Search";
-import {DropdownContainer} from "@cosmos/dropdown/src/Dropdown.styled";
-import Dropdown from "@cosmos/dropdown"
+import MultipleSelectDropdown from "../components/MultipleSelectDropdown";
 
 class MainContainer extends Component {
 	constructor(props) {
@@ -114,20 +113,17 @@ class MainContainer extends Component {
 		console.log(this.filterRating());
 		return (
 			<Fragment>
-				{/*<div className={styles.loadingContainer}>*/}
-				{/*	<div className={styles.loading}></div>*/}
-				{/*</div>*/}
-				<Dropdown content={<div>sad</div>}>
-				<div>sdsad</div>
-				</Dropdown>
 				<DropDown labelText={"Filtrele"}>
-					<div key={0} className={styles.dropdownMain}>
-						<div className={styles.dropdownFilter} onClick={()=>this.changeVisible("rating")}>
-							<div style={visibleRating || rateFilter.length>0 ? {color:"#ff6000"}:null} className={styles.dropdownTextFilter}>Ürün Puanı</div>
-							<div style={rateFilter.length>0?{visibility:"visible"}:null} className={styles.dropdownCount}>{rateFilter.length}</div>
-							<img className={styles.dropdownImgFilter} src={visibleRating ? selectUpOrange : rateFilter.length>0 ? selectDownOrange : selectDown} alt=""/>
-						</div>
-						<div style={visibleRating ? {display:"flex"}:null} className={styles.dropdownFilterContentContainer}>
+					<MultipleSelectDropdown
+						dropdownButton={
+							<div className={styles.dropdownFilter} onClick={()=>this.changeVisible("rating")}>
+								<div style={visibleRating || rateFilter.length>0 ? {color:"#ff6000"}:null} className={styles.dropdownTextFilter}>Ürün Puanı</div>
+								<div style={rateFilter.length>0?{visibility:"visible"}:null} className={styles.dropdownCount}>{rateFilter.length}</div>
+								<img className={styles.dropdownImgFilter} src={visibleRating ? selectUpOrange : rateFilter.length>0 ? selectDownOrange : selectDown} alt=""/>
+							</div>
+						}
+					>
+						<div className={styles.dropdownFilterContentContainer}>
 							{
 								rating.map((data, index)=>{
 									return (
@@ -148,14 +144,17 @@ class MainContainer extends Component {
 								})
 							}
 						</div>
-					</div>
-					<div key={1} className={styles.dropdownMain}>
-						<div className={styles.dropdownFilter} onClick={()=>this.changeVisible("merchant")}>
-							<div style={visibleMerchant || merchantFilter.length>0 ? {color:"#ff6000"}:null} className={styles.dropdownTextFilter}>Satıcı</div>
-							<div style={merchantFilter.length>0?{visibility:"visible"}:null} className={styles.dropdownCount}>{merchantFilter.length}</div>
-							<img className={styles.dropdownImgFilter} src={visibleMerchant ? selectUpOrange : merchantFilter.length>0 ? selectDownOrange : selectDown} alt=""/>
-						</div>
-						<div style={visibleMerchant ? {display:"flex",height:"288px",width:"326px"}:{height:"288px",width:"326px"}} className={styles.dropdownFilterContentContainer}>
+					</MultipleSelectDropdown>
+					<MultipleSelectDropdown
+						dropdownButton={
+							<div className={styles.dropdownFilter} onClick={()=>this.changeVisible("merchant")}>
+								<div style={visibleMerchant || merchantFilter.length>0 ? {color:"#ff6000"}:null} className={styles.dropdownTextFilter}>Satıcı</div>
+								<div style={merchantFilter.length>0?{visibility:"visible"}:null} className={styles.dropdownCount}>{merchantFilter.length}</div>
+								<img className={styles.dropdownImgFilter} src={visibleMerchant ? selectUpOrange : merchantFilter.length>0 ? selectDownOrange : selectDown} alt=""/>
+							</div>
+						}
+					>
+						<div style={{height:"288px",width:"326px"}} className={styles.dropdownFilterContentContainer}>
 							<Search
 								value={merchantSearchValue}
 								placeholder={"Filtrele"}
@@ -181,7 +180,7 @@ class MainContainer extends Component {
 								})
 							}
 						</div>
-					</div>
+					</MultipleSelectDropdown>
 				</DropDown>
 			</Fragment>
 		);

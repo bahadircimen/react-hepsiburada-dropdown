@@ -1,0 +1,14 @@
+.multipleSelectDropdown {
+  cursor: pointer;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  border-left: 1px solid #f5f5f5;
+
+  &:first-child {
+    border-left: none;
+  }
+}
